@@ -7,6 +7,7 @@ License:        Unlicense
 URL:            https://github.com/alexjurkiewicz/%{name}/
 Source0:        https://github.com/alexjurkiewicz/%{name}/archive/v%{version}.tar.gz
 
+Patch0:         01-allow-etc-acts-acts-conf.patch 
 Requires:       tarsnap
 
 %description

@@ -1,0 +1,22 @@
+diff -ruN acts-1.4.1/acts acts-1.4.1-mod/acts
+--- acts-1.4.1/acts	2019-08-25 18:42:45.000000000 +0100
++++ acts-1.4.1-mod/acts	2020-06-11 22:47:45.716501515 +0100
+@@ -15,7 +15,7 @@
+ if [ "$#" = "1" ] && { [ "$1" = "-h" ] || [ "$1" = "--help" ]; }; then
+     echo "usage: acts [-c /path/to/acts.conf]"
+     echo
+-    echo "Configuration should be in /etc/acts.conf or /usr/local/etc/acts.conf,"
++    echo "Configuration should be in /etc/acts/acts.conf, /etc/acts.conf or /usr/local/etc/acts.conf,"
+     echo "or given after the -c option"
+     echo "See https://github.com/alexjurkiewicz/acts for more information."
+     exit 0
+@@ -78,6 +78,9 @@
+     else
+         die "load-config source=$acts_conf message=\"User-specified config not found\""
+     fi
++elif [ -f /etc/acts/acts.conf ]; then
++    . /etc/acts/acts.conf
++    log_debug "load-config source=/etc/acts/acts.conf"
+ elif [ -f /etc/acts.conf ]; then
+     . /etc/acts.conf
+     log_debug "load-config source=/etc/acts.conf"

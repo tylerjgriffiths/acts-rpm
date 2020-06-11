@@ -18,23 +18,43 @@ Requires:       tarsnap
 
 
 %build
-rm -r contrib/openbsd 
 
 %install
+
+## Clear any previous builds
 rm -rf $RPM_BUILD_ROOT
 
+## Create directories
+mkdir -p $RPM_BUILD_ROOT/etc/acts/
+mkdir -p $RPM_BUILD_ROOT/usr/share/doc/acts
 mkdir -p $RPM_BUILD_ROOT/usr/local/bin
+mkdir -p $RPM_BUILD_ROOT/etc/systemd/system
+
+## Install binary
 install -m 0755 acts $RPM_BUILD_ROOT/usr/local/bin/acts
 
-mkdir -p $RPM_BUILD_ROOT/usr/share/doc/acts
-install -m 0600 acts.conf.sample $RPM_BUILD_ROOT/usr/share/doc/acts/acts.conf.sample
+## Install config example and pre/post scripts
+install -m 0600 acts.conf.sample $RPM_BUILD_ROOT/etc/acts/acts.conf.sample
+install -m 0755 contrib/acts-pre.sh $RPM_BUILD_ROOT/etc/acts/acts-pre.sh
+install -m 0755 contrib/acts-post.sh $RPM_BUILD_ROOT/etc/acts/acts-post.sh
 
-cp -r contrib $RPM_BUILD_ROOT/usr/share/doc/acts/contrib
-cp LICENSE $RPM_BUILD_ROOT/usr/share/doc/acts/LICENSE
+## Install license and documentation
+install -m 0644 LICENSE $RPM_BUILD_ROOT/usr/share/doc/acts/LICENSE
+install -m 0644 README.md $RPM_BUILD_ROOT/usr/share/doc/acts/README.md
+
+## install Systemd units
+install -m 0755 contrib/systemd/acts.service $RPM_BUILD_ROOT/etc/systemd/system/acts.service
+install -m 0755 contrib/systemd/acts.timer $RPM_BUILD_ROOT/etc/systemd/system/acts.timer
 
 
 %files
-%doc /usr/share/doc/acts
+%license /usr/share/doc/acts/LICENSE
+%doc /usr/share/doc/acts/README.md
+/etc/acts/acts.conf.sample
+/etc/acts/acts-pre.sh
+/etc/acts/acts-post.sh
+/etc/systemd/system/acts.service
+/etc/systemd/system/acts.timer
 /usr/local/bin/acts
 
 

@@ -54,8 +54,8 @@ install -m 0755 contrib/systemd/%{name}.timer %{buildroot}/etc/systemd/system/%{
 %config %{_sysconfdir}/%{name}/%{name}.conf.sample
 %{_sysconfdir}/%{name}/%{name}-pre.sh
 %{_sysconfdir}/%{name}/%{name}-post.sh
-/etc/systemd/system/%{name}.service
-/etc/systemd/system/%{name}.timer
+%{_sysconfdir}/systemd/system/%{name}.service
+%{_sysconfdir}/systemd/system/%{name}.timer
 %{_bindir}/%{name}
 
 

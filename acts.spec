@@ -1,7 +1,7 @@
 Name:           acts
 Version:        1.4.1
 Release:        3%{?dist}
-Summary:        Acts is a backup rotation tool for Tarsnap
+Summary:        A backup rotation tool for Tarsnap
 
 License:        Unlicense
 URL:            https://github.com/alexjurkiewicz/%{name}/
@@ -44,8 +44,8 @@ install -m 0644 LICENSE %{buildroot}/%{_docdir}/%{name}/LICENSE
 install -m 0644 README.md %{buildroot}/%{_docdir}/%{name}/README.md
 
 ## install Systemd units
-install -m 0755 contrib/systemd/%{name}.service %{buildroot}/etc/systemd/system/%{name}.service
-install -m 0755 contrib/systemd/%{name}.timer %{buildroot}/etc/systemd/system/%{name}.timer
+install -m 0755 contrib/systemd/%{name}.service %{buildroot}/%{_sysconfdir}/systemd/system/%{name}.service
+install -m 0755 contrib/systemd/%{name}.timer %{buildroot}/%{_sysconfdir}/systemd/system/%{name}.timer
 
 
 %files

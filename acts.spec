@@ -1,6 +1,6 @@
 Name:           acts
 Version:        1.4.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Acts is a backup rotation tool for Tarsnap
 
 License:        Unlicense

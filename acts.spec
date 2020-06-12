@@ -17,7 +17,7 @@ Requires:       tarsnap
 %global debug_package %{nil}
 
 %prep
-%autosetup
+%autosetup -p 1
 
 
 %build

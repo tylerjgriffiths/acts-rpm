@@ -7,7 +7,9 @@ License:        Unlicense
 URL:            https://github.com/alexjurkiewicz/%{name}/
 Source0:        https://github.com/alexjurkiewicz/%{name}/archive/v%{version}.tar.gz
 
-Patch0:         01-allow-etc-%{name}-%{name}-conf.patch 
+Patch0:         01-allow-etc-%{name}-%{name}-conf.patch
+Patch1:         02-systemd-usr-bin.patch
+
 Requires:       tarsnap
 
 %description

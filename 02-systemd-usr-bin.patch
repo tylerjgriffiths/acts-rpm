@@ -1,0 +1,8 @@
+--- acts-1.4.1/contrib/systemd/acts.service	2019-08-25 18:42:45.000000000 +0100
++++ acts-1.4.1-mod/contrib/systemd/acts.service	2020-06-12 13:23:38.444985213 +0100
+@@ -3,4 +3,4 @@
+ 
+ [Service]
+ Type=simple
+-ExecStart=/usr/local/bin/acts
++ExecStart=/usr/bin/acts

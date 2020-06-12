@@ -13,6 +13,7 @@ Patch1:         02-systemd-usr-bin.patch
 Requires:       tarsnap
 
 %description
+A backup rotation tool for Tarsnap
 
 %global debug_package %{nil}
 
